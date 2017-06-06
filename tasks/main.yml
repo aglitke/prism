@@ -1,2 +1,5 @@
 ---
 # tasks file for prism
+- include: check_vars.yml
+- include: make_playbook.yml
+

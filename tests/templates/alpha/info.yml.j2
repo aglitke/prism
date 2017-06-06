@@ -1,0 +1,9 @@
+- hosts: "{{ target_host }}"
+  remote_user: "{{ target_user }}"
+
+  tasks:
+  - name: Print information
+    debug:
+      msg: >
+        Target {{ target }} uses backend {{ backend }} and likes the letter
+        {{ backend_config.letter }}.  You like the number {{ params.number }}.

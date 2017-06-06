@@ -1,0 +1,20 @@
+- name: Checking that required playbook variables are set
+  fail: msg="Variable {{ item }} is not defined in the playbook"
+  with_items:
+  - target
+  - operation
+  - params
+  when: vars[item] is undefined
+
+- name: Load target definition
+  include_vars:
+    file: "{{ target_definitions_dir }}/{{ target }}.yml"
+
+- name: Checking that required target variables are set
+  fail: msg="Variable {{ item }} missing from the target definition {{ target }}"
+  with_items:
+  - target_host
+  - target_user
+  - backend
+  - backend_config
+  when: vars[item] is undefined

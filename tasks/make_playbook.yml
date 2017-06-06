@@ -1,0 +1,5 @@
+- name: Generate playbook
+  template:
+    src: "{{ backend }}/{{ operation }}.yml.j2"
+    dest: "{{ generated_playbook }}"
+

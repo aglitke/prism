@@ -1,0 +1,29 @@
+---
+# This test generates a playbook using the prism role and verifies the result.
+# Specific behavior tested includes:
+# - Ability to set the location of target definitions and templates
+# - Ability to set the location of the generated playbook
+# - Loading variables from a target definition
+# - Selecting a template based on specified operation
+# - Passing operation parameters
+
+- hosts: localhost
+  roles:
+    - prism
+
+  vars:
+    target_definitions_dir: tests/targets
+    playbook_templates_dir: tests/templates
+    generated_playbook: "{{ lookup('env', 'PWD') }}/tests/01-out"
+    expected_playbook: "{{ lookup('env', 'PWD') }}/tests/01-expected"
+    target: foo
+    operation: info
+    params:
+      number: 5
+
+  tasks:
+  - name: Compare playbooks
+    shell: diff {{ generated_playbook }} {{ expected_playbook }}
+
+  - name: Clean up
+    file: path="{{ generated_playbook }}" state=absent

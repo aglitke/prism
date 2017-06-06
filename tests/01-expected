@@ -1,0 +1,9 @@
+- hosts: "host.example.com"
+  remote_user: "admin"
+
+  tasks:
+  - name: Print information
+    debug:
+      msg: >
+        Target foo uses backend alpha and likes the letter
+        a.  You like the number 5.

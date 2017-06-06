@@ -1,0 +1,7 @@
+---
+target_host: host.example.com
+target_user: admin
+backend: alpha
+backend_config:
+  letter: a
+

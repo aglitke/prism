@@ -1,2 +1,12 @@
 ---
 # defaults file for prism
+
+# Set the default location for target definitions
+target_definitions_dir:  "{{ lookup('env', 'PRISM_TARGETS_DIR')|default('/etc/prism/targets', true) }}"
+
+# Set the default location for playbook templates
+playbook_template_dir: templates/
+
+# Set the default filename for generated playbooks
+generated_playbook: /tmp/prism-playbook.yml
+

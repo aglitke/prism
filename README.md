@@ -85,7 +85,8 @@ backend_config:
 
 Generating a playbook
 ---------------------
-The following playbook can be used to store an object using the 'web' target:
+The following playbook can be used to generate a playbook that will store an
+object using the 'web' target:
 ```
 # Generate the playbook using the local machine
 - hosts: localhost
@@ -99,7 +100,8 @@ The following playbook can be used to store an object using the 'web' target:
     # Optional: override if not using the default
     playbook_templates_dir: /etc/prism/templates
 
-    # Optional: Set the name of the output playbook
+    # Set the name of the output playbook.  If this variable is omitted, no
+    # playbook will be generated.
     generated_playbook: /tmp/prism-playbook.yml
 
     # Choose a target for this operation
@@ -133,7 +135,7 @@ with `ansible-playbook` to perform the action:
       body: TG9yZW0gSXBzdW0gaXMgc2ltcGx5IGR1bW15IHRleHQu=
 ```
 
-To switch to an 'ftp' target you only need to change one line and the resulting
+To switch to an 'ftp' target you only need to change one line and the generated
 playbook would be configured to talk with the ftp server according to the ftp
 operation template and target configuration.
 ```

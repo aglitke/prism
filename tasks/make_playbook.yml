@@ -2,4 +2,3 @@
   template:
     src: "{{ playbook_templates_dir }}/{{ backend }}/{{ operation }}.yml.j2"
     dest: "{{ generated_playbook }}"
-  when: generated_playbook is defined

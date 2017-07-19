@@ -12,10 +12,10 @@
     - prism
 
   vars:
-    target_definitions_dir: tests/targets
-    playbook_templates_dir: tests/templates
-    generated_playbook: "{{ lookup('env', 'PWD') }}/tests/01-out"
-    expected_playbook: "{{ lookup('env', 'PWD') }}/tests/01-expected"
+    target_definitions_dir: "{{ playbook_dir }}/targets"
+    playbook_templates_dir: "{{ playbook_dir }}/templates"
+    generated_playbook: "/tmp/test-generate-out"
+    expected_playbook: "{{ playbook_dir }}/data/test-generate-expected"
     target: foo
     operation: info
     params:

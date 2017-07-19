@@ -1,5 +1,12 @@
 ---
 # tasks file for prism
 - include: check_vars.yml
+
 - include: make_playbook.yml
   when: generated_playbook is defined
+
+- name: Run playbook
+  shell: ansible-playbook {{ generated_playbook }}
+  when:
+  - generated_playbook is defined
+  - not generate_only

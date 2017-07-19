@@ -7,3 +7,6 @@ target_definitions_dir:  "{{ lookup('env', 'PRISM_TARGETS_DIR')|default('/etc/pr
 # Set the default location for playbook templates
 playbook_templates_dir: templates/
 
+# Controls automatic execution of the generated playbook.  If true, execution
+# stops after the playbook is generated.
+generate_only: true

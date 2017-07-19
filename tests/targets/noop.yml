@@ -1,0 +1,6 @@
+---
+target_host: localhost
+target_user: "{{ lookup('env', 'USERNAME' }}"
+backend: noop
+backend_config:
+  foo: bar

@@ -1,0 +1,5 @@
+- name: Run generated playbook
+  debug: msg="Running playbook {{ generated_playbook }}"
+
+- name: Clean up generated playbook
+  file: path="{{ generated_playbook }}" state=absent

@@ -1,0 +1,5 @@
+- hosts: {{ target_host }}
+
+  tasks:
+  - name: Touch file
+    shell: touch {{ params.file }}

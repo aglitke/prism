@@ -1,0 +1,24 @@
+---
+# This test verifies that auto run functionality works
+
+- hosts: localhost
+  roles:
+    - prism
+
+  vars:
+    target_definitions_dir: "{{ playbook_dir }}/targets"
+    playbook_templates_dir: "{{ playbook_dir }}/templates"
+    generated_playbook: "/tmp/autorun-playbook.yml"
+    generate_only: false
+
+    target: noop
+    operation: create
+    params:
+      file: "/tmp/test-autorun.out"
+
+  tasks:
+  - name: Check that playbook was run
+    shell: cat {{ params.file }}
+
+  - name: Clean up
+    file: path="{{ params.file }}" state=absent
